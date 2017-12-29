@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href="/imgs/todoicon.png">
+  <title>To do List</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/libs/bootstrap-4-beta.css">
+  <!-- Application specific CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+
+</head>
+
+<body>
+  <header class="container-fluid">
+    <div class="row">
+      <div class="page-header col-12 bg-primary">
+        <h1><i class="fa fa-list-alt" aria-hidden="true"></i> To do list</h1>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="container">
+      <div class="row mt-2 justify-content-center">
+        <div class="col-lg-6">
+          <div class="input-group">
+            <span class="input-group-btn">
+              <button class="btn btn-success addfirstbtn" type="button">Add</button>
+            </span>
+            <input type="text" class="form-control formfield" id="formfield" placeholder="Add to list" aria-label="Search for...">
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="container">
+      <div class="row justify-content-center">
+        <div class="col-sm-12 col-lg-5 mt-2 holder">
+          <h2>What is there to do today?</h2>
+          <div>
+            <ul class="todolist list-group mb-2">
+            </ul>
+          </div>
+        </div>
+        <hr>
+        <div class="col-sm-12 col-lg-5 mt-2 ml-2">
+          <h2>Completed tasks!</h2>
+          <div>
+            <ul class="donelist list-group mb-2">
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer class="bg-primary">
+    <div class="container">
+      <span>Markus Andersson &copy; 2017</span>
+    </div>
+  </footer>
+
+
+  <!-- JavaScript libraries -->
+  <script src="/jsonflex.js"></script>
+  <script src="/js/libs/jquery-3.2.1.js"></script>
+  <script src="/js/libs/popper-1.11.0.js"></script>
+  <script src="/js/libs/bootstrap-4-beta.js"></script>
+  <!-- Application specific JavaScript -->
+  <script src="/js/classes/base.class.js"></script>
+  <script src="/js/classes/todolist.class.js"></script>
+  <script src="/js/classes/donelist.class.js"></script>
+  <script src="/js/classes/todoitem.class.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+
+</html>

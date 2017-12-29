@@ -1,0 +1,28 @@
+{
+  "todolist": {
+    "items": [
+      {
+        "item": "Tvätta",
+        "⚙": "ToDoItem"
+      },
+      {
+        "item": "Städa",
+        "⚙": "ToDoItem"
+      },
+      {
+        "item": "Baka",
+        "⚙": "ToDoItem"
+      }
+    ],
+    "⚙": "ToDoList"
+  },
+  "donelist": {
+    "items": [
+      {
+        "item": "Handla",
+        "⚙": "ToDoItem"
+      }
+    ],
+    "⚙": "DoneList"
+  }
+}
