@@ -1,22 +1,8 @@
-JSON._classes(ToDoList, DoneList, ToDoItem);
-let todoList, doneList;
-
-JSON._load('items')
-// if we load succesfully
-.then((data)=>{
-  todoList = data.todolist;
-  doneList = data.donelist;
-  updateAllViews();
-})
-// failed to load
-.catch(()=>{
-  todoList = new ToDoList();
-  doneList = new DoneList();
-});
+let todoList = new List([], 'todoList');
+let doneList = new List([], 'doneList');
 
 function updateListView(list, listSelector) {
   let $myList = $(listSelector);
-  JSON._save('items',{todolist: todoList, donelist: doneList});
   $myList.empty();
   for (let i = 0; i < list.items.length; i++) {
     let task = list.items[i];
@@ -62,8 +48,6 @@ function updateListView(list, listSelector) {
     list.removeFromList(index);
     updateAllViews();
   });
-
-
 }
 
 
@@ -71,27 +55,12 @@ function updateAllViews() {
   updateListView(todoList, '.todolist');
   updateListView(doneList, '.donelist');
   $('.donelist .move-to-done').remove();
-  $('.donelist .move-up').remove();
-  $('.donelist .move-down').remove();
-  $('.todolist .btn-group').hide();
-  $('.donelist .btn-group').hide();
-  $('.todolist').mouseenter(function() {
-    $('.btn-group').show();
-  });
-  $('.todolist').mouseleave(function() {
-    $('.btn-group').hide();
-  });
-  $('.donelist').mouseenter(function() {
-    $('.btn-group').show();
-  });
-  $('.donelist').mouseleave(function() {
-    $('.btn-group').hide();
-  });
+  saveAllJSON();
 }
 
- function show(text) {
+function show(text) {
   if (text !== '') {
-    const myItem = new ToDoItem(text);
+    const myItem = new Item(text);
     todoList.add(myItem);
     updateAllViews();
     $('#formfield').val('');
@@ -111,3 +80,18 @@ $('.addfirstbtn').on('click', function() {
   const text = $('#formfield').val();
   show(text);
 });
+
+function saveAllJSON() {
+  todoList.saveJSON();
+  doneList.saveJSON();
+}
+
+function loadAllJSON() {
+  todoList.loadJSON(function(loadedItems) {
+    updateAllViews();
+  });
+  // Arrow function
+  doneList.loadJSON(loadedItems => updateAllViews());
+}
+
+loadAllJSON();
